@@ -32,6 +32,7 @@ body {
 
 .header button {
   padding: 15px;
+  margin: 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
@@ -91,15 +92,16 @@ main button {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  background-color: blue;
-  border: none;
-  color: white;
+  background-color: transparent;
+  border: 2px solid var(--darkest-blue);
+  color: var(--darkest-blue);
   margin-left: 30%;
+  margin-top: 20px;
 }
 
 main button:hover{
-  transform: translateY(-5px);
   transition: all 0.5s ease-in;
+  box-shadow: 0 0 10px blue;
 }
 
 /* Invoice proper */
@@ -161,6 +163,7 @@ tr {
 @media (max-width:798px) {
   body {
     font-size: 15px;
+
   }
 
   main {
