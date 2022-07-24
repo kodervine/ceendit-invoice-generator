@@ -21,62 +21,62 @@
     <form class="form-input">
       <div>
         <label for="">Sender name</label>
-        <input type="text" name="" id="" placeholder="Who is this invoice from?" required>
+        <input type="text" name="" id="sender-name" placeholder="Who is this invoice from?" required>
       </div>
       <div>
         <label for="">Sender phone number</label>
-        <input type="number" name="" id="" placeholder="">
+        <input type="number" name="" id="sender-num" placeholder="">
       </div>
       <div>
         <label for="">Sender email</label>
-        <input type="email" name="" id="" placeholder="">
+        <input type="email" name="" id="sender-email" placeholder="">
       </div>
       <div>
         <label for="">Recipient name</label>
-        <input type="text" name="" id="" placeholder="Who is this invoice to?">
+        <input type="text" name="" id="recipient-name" placeholder="Who is this invoice to?">
       </div>
       <div>
         <label for="">Recipient company</label>
-        <input type="text" name="" id="" placeholder="">
+        <input type="text" name="" id="recipient-company" placeholder="">
       </div>
       <div>
         <label for="">Recipient email</label>
-        <input type="email" name="" id="" placeholder="">
+        <input type="email" name="" id="recipient-email" placeholder="">
       </div>
       <div>
         <label for="">Date created</label>
-        <input type="date" name="" id="" placeholder="">
+        <input type="date" name="" id="date-created" placeholder="">
       </div>
       <div>
         <label for="">Date due</label>
-        <input type="date" name="" id="" placeholder="">
+        <input type="date" name="" id="date-due" placeholder="">
       </div>
       <div>
         <label for="">Services provided</label>
-        <input type="text" name="" id="" placeholder="Add services rendered here">
+        <input type="text" name="" id="services" placeholder="Add services rendered here">
       </div>
       <div class="add-items">
         <p>Add more items</p>
         <i class="fa-solid fa-arrow-turn-down"></i></div>
       <div>
         <label for="">Price</label>
-        <input type="text" name="" id="" placeholder="">
+        <input type="text" name="" id="price" placeholder="">
       </div>
       <div>
         <label for="">Bank name</label>
-        <input type="text" name="" id="" placeholder="">
+        <input type="text" name="" id="bank-name" placeholder="">
       </div>
       <div>
         <label for="">Account number</label>
-        <input type="number" name="" id="" placeholder="">
+        <input type="number" name="" id="account-num" placeholder="">
       </div>
       <div>
         <label for="">Account name</label>
-        <input type="name" name="" id="" placeholder="">
+        <input type="name" name="" id="account-name" placeholder="">
       </div>
     </form>
     <!-- Invoice -->
-    <button>Generate Invoice</button>
+    <button id="generate-invoice">Generate Invoice</button>
     <button class="display-none">Generate Invoice</button>
   </main>
 
@@ -90,7 +90,7 @@
           <div class="company-logo">
             <img src="/images/logo.png" alt="Logo" srcset="">
           </div>
-          <div>
+          <div class="add-invoice-date">
             <p>Invoice #00001</p>
             <p>23/07/2022</p>
             <p>30/07/2022</p>
@@ -107,7 +107,7 @@
           <p>olaedoekezie@gmail.com</p>
         </div>
 
-        <div class="sender-details">
+        <div class="sender-details" id="receiver-details">
           <h4>To</h4>
           <p>Duke Okonkwo</p>
           <p>Silverline corporations</p>
@@ -144,7 +144,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody id="payment-method">
+          <tbody id="payment-method" class="product-details">
             <tr>
               <td>5 emails</td>
               <td>#20</td>

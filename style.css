@@ -48,7 +48,7 @@ body {
 }
 
 main {
-  background-color: rgb(250, 252, 254);
+  background-color: rgb(252, 251, 245);
   margin: auto;
   width: 40%;
   padding: 20px;
@@ -72,6 +72,7 @@ main {
   outline: none;
   font-size: 15px;
   border-radius: 8px;
+  background-color: transparent;
 }
 
 .form-input input:focus {
