@@ -34,6 +34,16 @@ const productDetails = document.querySelector('.product-details');
 
 // General Function to add input values to the invoice page
 function addToInvoice(formInput, appendDiv){
+  if(formInput.value === ''){
+    const redAlert = document.querySelector('.red-alert');
+    redAlert.classList.remove('display-none');
+    // Work on stopping appended child
+
+    setTimeout(() => {
+      redAlert.classList.add('display-none');
+    }, 1000);
+  }
+
   // Add input value to an element
   const createParagraph = document.createElement('p');
   createParagraph.innerText = formInput.value;
