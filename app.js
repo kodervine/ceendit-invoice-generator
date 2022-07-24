@@ -19,7 +19,7 @@ const recipientEmail= document.getElementById('recipient-email');
 const dateCreated = document.getElementById('date-created');
 const dateDue = document.getElementById('date-due');
 const servicesProvided = document.getElementById('services');
-const price = document.getElementById('price');
+const servicesPrice = document.getElementById('price');
 const bankName = document.getElementById('bank-name');
 const accountNum = document.getElementById('account-num');
 const accountName = document.getElementById('account-name');
@@ -42,6 +42,33 @@ function addToInvoice(formInput, appendDiv){
   formInput.value = '';
 }
 
+// Add to product / service provided table
+function productItems(row1, row2, appendDiv){
+  const createRow = document.createElement('tr');
+  createRow.innerHTML =  `
+  <td>${row1.value}</td>
+  <td>${row2.value}</td>
+  <td><i class="fa-solid fa-ellipsis-vertical"></i><p class="display-none">Edit invoice</p></td>
+  `
+  appendDiv.appendChild(createRow);
+  row1.value = '';
+  row2.value = '';
+}
+
+// Add to bank payment method details
+function paymentTable(row1, row2, row3, appendDiv){
+  const createRow = document.createElement('tr');
+  createRow.innerHTML =  `
+  <td>${row1.value}</td>
+  <td>${row2.value}</td>
+  <td>${row3.value}</td>
+  `
+  appendDiv.appendChild(createRow);
+  row1.value = '';
+  row2.value = '';
+  row3.value = '';
+}
+
 // Generate invoice page details 
 generateInvoice.addEventListener('click', ()=> {
   addToInvoice(dateCreated, addInvoiceDate);
@@ -52,4 +79,6 @@ generateInvoice.addEventListener('click', ()=> {
   addToInvoice(recipientName, receiverDetailsDiv);
   addToInvoice(recipientCompany, receiverDetailsDiv);
   addToInvoice(recipientEmail, receiverDetailsDiv);
+  productItems(servicesProvided, servicesPrice, productDetails)
+  paymentTable(bankName, accountName, accountNum,paymentMethod) 
 })
