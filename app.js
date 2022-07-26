@@ -172,7 +172,8 @@ function createInvoiceAgain(){
 createInvoiceAgain()
 
 /* ================================
-Function suggest bank names
+To suggest bank names in the input field
+Inspo here - https://dev.to/walternascimentobarroso/autocomplete-with-js-551f
 ============================ */
   "use strict";
   bankName;
