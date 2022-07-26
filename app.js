@@ -53,10 +53,17 @@ function addToInvoice(formInput, appendDiv){
     redAlert.classList.remove('display-none');
 
     // Work on stopping appended child
+    // ===============================
 
     setTimeout(() => {
       redAlert.classList.add('display-none');
     }, 1000);
+
+    main.classList.remove('display-none');
+    invoicePage.classList.add('display-none');
+  } else {
+    main.classList.add('display-none');
+    invoicePage.classList.remove('display-none')
   }
 
   // Add input value to an element
@@ -102,19 +109,8 @@ function paymentTable(row1, row2, row3, appendDiv){
  ============================================
 */
 generateInvoice.addEventListener('click', (formInput)=> {
-  // Validate to download form proper
-  if(formInput.value === ''){
-    main.classList.remove('display-none');
-    invoicePage.classList.add('display-none')
-  } 
-  
-  if (formInput.value) {
-    main.classList.add('display-none');
-    invoicePage.classList.remove('display-none');
-    // invoicePage.classList.add('show-class')
-  }
 
-
+  // Add to function
   addToInvoice(dateCreated, addInvoiceDate);
   addToInvoice(dateDue, addInvoiceDate);
   addToInvoice(senderName, senderDetailsDiv);
@@ -125,6 +121,7 @@ generateInvoice.addEventListener('click', (formInput)=> {
   addToInvoice(recipientEmail, receiverDetailsDiv);
   productItems(servicesProvided, servicesPrice, productDetails)
   paymentTable(bankName, accountName, accountNum,paymentMethod) 
+
 })
 
 // Add more services list
