@@ -165,7 +165,6 @@ tr {
   cursor:pointer;
 }
 
-
 /* For javascript navigation */
 .display-none {
   display: none;
@@ -173,6 +172,21 @@ tr {
 
 .show-class {
   display: inline-block;
+}
+
+/* Edit price */
+.edit-invoice{
+  display: none;
+}
+
+.edit-invoice:hover {
+  display: inline-block;
+  color: black;
+  background-color: rgb(209, 208, 208);
+  padding: 8px;
+  border-radius: 2px;
+  cursor: pointer;
+  align-self: center;
 }
 
 /* Media query */
@@ -186,15 +200,15 @@ tr {
   width: 80%;
   }
 
-    .red-alert {
-      position: sticky;
-      top: 50%;
-      background-color: red;
-      color: white;
-      width: 80%;
-      text-align: center;
-      margin: auto;
-      padding: 10px 0;
-      font-size: 16px;
+  .red-alert {
+    position: sticky;
+    top: 50%;
+    background-color: red;
+    color: white;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 10px 0;
+    font-size: 16px;
     }
 }
