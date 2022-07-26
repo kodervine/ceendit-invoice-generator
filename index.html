@@ -13,7 +13,7 @@
   <header class="header">
     <img src="/images/logo.png" alt="" srcset="">
     <h1>Ceendit Invoice Generator</h1>
-  <button>Create your invoice here</button>
+  <button class="create-invoice">Create your invoice here</button>
   </header>
   
   <!-- Red alert -->
@@ -24,6 +24,7 @@
   <!-- Main -->
   <main class="main">
     <!-- Form to get invoice details -->
+    <h3>Fill the form to continue</h3>
     <form class="form-input">
       <div>
         <label for="">Sender name</label>
@@ -66,7 +67,7 @@
         <i class="fa-solid fa-arrow-turn-down" id="add-services"></i></div>
       <div>
         <label for="">Price</label>
-        <input type="text" name="" id="price" placeholder="">
+        <input type="text" name="" id="price" placeholder="In Naira">
       </div>
       <div>
         <label for="">Bank name</label>
@@ -146,7 +147,7 @@
           <thead>
             <tr>
               <th>Product/Service</th>
-              <th>Price</th>
+              <th>Price (NGN)</th>
               <th></th>
             </tr>
           </thead>
@@ -158,6 +159,11 @@
             </tr> -->
           </tbody>
         </table>
+      </section>
+
+      <section>
+        <br><br><br>
+        <button class="save-pdf">Save Pdf</button>
       </section>
   </article>
   

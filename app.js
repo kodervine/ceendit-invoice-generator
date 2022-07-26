@@ -4,10 +4,23 @@ const main = document.querySelector('.main');
 const invoicePage = document.querySelector('.invoice-page')
 
 //  Hide other sections on document load for only header to show
-// window.addEventListener('DOM', ()=> {
-//   main.classList.add('display-none');
-//   invoicePage.classList.add('display-none');
-// })
+window.addEventListener('DOMContentLoaded', ()=> {
+  main.classList.add('display-none');
+  invoicePage.classList.add('display-none');
+})
+
+
+// Function to show input forms
+function showInvoiceForm(){
+  const createInvoice = document.querySelector('.create-invoice');
+  createInvoice.addEventListener('click', ()=> { 
+    header.classList.add('display-none');
+    main.classList.remove('display-none');
+  })
+}
+
+showInvoiceForm();
+
 
 // Defining Input variables here
 const senderName = document.getElementById('sender-name');
@@ -35,15 +48,16 @@ const productDetails = document.querySelector('.product-details');
 // General Function to add input values to the invoice page
 function addToInvoice(formInput, appendDiv){
   // Authentication of empty input
-  // if(formInput.value === ''){
-  //   const redAlert = document.querySelector('.red-alert');
-  //   redAlert.classList.remove('display-none');
-  //   // Work on stopping appended child
+  if(formInput.value === ''){
+    const redAlert = document.querySelector('.red-alert');
+    redAlert.classList.remove('display-none');
 
-  //   setTimeout(() => {
-  //     redAlert.classList.add('display-none');
-  //   }, 1000);
-  // }
+    // Work on stopping appended child
+
+    setTimeout(() => {
+      redAlert.classList.add('display-none');
+    }, 1000);
+  }
 
   // Add input value to an element
   const createParagraph = document.createElement('p');
@@ -66,7 +80,10 @@ function productItems(row1, row2, appendDiv){
   row2.value = '';
 }
 
-// Add to bank payment method table
+/* ==========================================
+ Add to bank payment method table
+=============================================
+*/
 function paymentTable(row1, row2, row3, appendDiv){
   const createRow = document.createElement('tr');
   createRow.innerHTML =  `
@@ -80,8 +97,24 @@ function paymentTable(row1, row2, row3, appendDiv){
   row3.value = '';
 }
 
-// Generate invoice page details 
-generateInvoice.addEventListener('click', ()=> {
+/* ==========================================
+ Generate invoice page details 
+ ============================================
+*/
+generateInvoice.addEventListener('click', (formInput)=> {
+  // Validate to download form proper
+  if(formInput.value === ''){
+    main.classList.remove('display-none');
+    invoicePage.classList.add('display-none')
+  } 
+  
+  if (formInput.value) {
+    main.classList.add('display-none');
+    invoicePage.classList.remove('display-none');
+    // invoicePage.classList.add('show-class')
+  }
+
+
   addToInvoice(dateCreated, addInvoiceDate);
   addToInvoice(dateDue, addInvoiceDate);
   addToInvoice(senderName, senderDetailsDiv);
@@ -100,7 +133,7 @@ const addMoreServices = document.getElementById('add-services');
 addMoreServices.addEventListener('click', ()=> {
   const newServicesDiv = document.createElement('div');
   newServicesDiv.innerHTML = `
-        <label for="">Services provided</label>
+      <label for="">Services provided</label>
       <input type="text" name="" class="services" placeholder="Add services rendered here">`
     
   const addSibling = addMoreServices.parentElement.previousElementSibling;
@@ -108,3 +141,19 @@ addMoreServices.addEventListener('click', ()=> {
   addSibling.insertAdjacentElement("afterend", newServicesDiv);
   }   
 )
+
+/* ==========================================
+Save pdf
+===========================================
+*/
+function saveInvoice(){
+  const savePdf = document.querySelector('.save-pdf')
+  savePdf.addEventListener('click', ()=> {
+    main.classList.add('display-none');
+    header.classList.add('display-none');
+    savePdf.classList.add('display-none');
+    window.print();
+  })
+}
+
+saveInvoice()
