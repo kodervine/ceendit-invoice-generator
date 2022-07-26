@@ -79,7 +79,7 @@ main h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 80%;
+  width: 90%;
   margin: auto;
   padding-bottom: 10px;
 }
@@ -108,7 +108,8 @@ main h3 {
 
 /* Main button */
 main button,
-.save-pdf {
+.save-pdf,
+.create-another-invoice {
   padding: 15px;
   border-radius: 5px;
   cursor: pointer;
@@ -122,9 +123,17 @@ main button,
 }
 
 main button:hover,
-.save-pdf:hover {
+.save-pdf:hover,
+.create-another-invoice:hover {
   transition: all 0.5s ease-in;
   box-shadow: 0 0 10px blue;
+}
+
+/* Bank search */
+#suggestions {
+  padding: 3px;
+  list-style-type: none;
+  cursor: pointer;
 }
 
 /* Invoice proper */
