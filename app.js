@@ -18,7 +18,7 @@ const recipientCompany = document.getElementById('recipient-company');
 const recipientEmail= document.getElementById('recipient-email');
 const dateCreated = document.getElementById('date-created');
 const dateDue = document.getElementById('date-due');
-const servicesProvided = document.getElementById('services');
+const servicesProvided = document.querySelector('#services');
 const servicesPrice = document.getElementById('price');
 const bankName = document.getElementById('bank-name');
 const accountNum = document.getElementById('account-num');
@@ -34,15 +34,16 @@ const productDetails = document.querySelector('.product-details');
 
 // General Function to add input values to the invoice page
 function addToInvoice(formInput, appendDiv){
-  if(formInput.value === ''){
-    const redAlert = document.querySelector('.red-alert');
-    redAlert.classList.remove('display-none');
-    // Work on stopping appended child
+  // Authentication of empty input
+  // if(formInput.value === ''){
+  //   const redAlert = document.querySelector('.red-alert');
+  //   redAlert.classList.remove('display-none');
+  //   // Work on stopping appended child
 
-    setTimeout(() => {
-      redAlert.classList.add('display-none');
-    }, 1000);
-  }
+  //   setTimeout(() => {
+  //     redAlert.classList.add('display-none');
+  //   }, 1000);
+  // }
 
   // Add input value to an element
   const createParagraph = document.createElement('p');
@@ -65,7 +66,7 @@ function productItems(row1, row2, appendDiv){
   row2.value = '';
 }
 
-// Add to bank payment method details
+// Add to bank payment method table
 function paymentTable(row1, row2, row3, appendDiv){
   const createRow = document.createElement('tr');
   createRow.innerHTML =  `
@@ -92,3 +93,18 @@ generateInvoice.addEventListener('click', ()=> {
   productItems(servicesProvided, servicesPrice, productDetails)
   paymentTable(bankName, accountName, accountNum,paymentMethod) 
 })
+
+// Add more services list
+const addMoreServices = document.getElementById('add-services');
+
+addMoreServices.addEventListener('click', ()=> {
+  const newServicesDiv = document.createElement('div');
+  newServicesDiv.innerHTML = `
+        <label for="">Services provided</label>
+      <input type="text" name="" class="services" placeholder="Add services rendered here">`
+    
+  const addSibling = addMoreServices.parentElement.previousElementSibling;
+
+  addSibling.insertAdjacentElement("afterend", newServicesDiv);
+  }   
+)
