@@ -143,14 +143,72 @@ addMoreServices.addEventListener('click', ()=> {
 Save pdf
 ===========================================
 */
-function saveInvoice(){
-  const savePdf = document.querySelector('.save-pdf')
+const savePdf = document.querySelector('.save-pdf');
+  const createAnotherInvoice = document.querySelector('.create-another-invoice')
+function saveInvoice(){ 
   savePdf.addEventListener('click', ()=> {
     main.classList.add('display-none');
     header.classList.add('display-none');
     savePdf.classList.add('display-none');
+    createAnotherInvoice.classList.add('display-none')
     window.print();
+    createInvoiceAgain()
   })
 }
 
 saveInvoice()
+
+// Function create Another invoice
+function createInvoiceAgain(){
+  setTimeout(() => {
+    createAnotherInvoice.classList.remove('display-none');
+    createAnotherInvoice.addEventListener('click', ()=> {
+      header.classList.remove('display-none');
+      invoicePage.classList.add('display-none');
+    })
+  }, 2000)
+}
+
+createInvoiceAgain()
+
+/* ================================
+Function suggest bank names
+============================ */
+  "use strict";
+  bankName;
+  let ulField = document.getElementById('suggestions');
+  bankName.addEventListener('input', changeAutoComplete);
+  ulField.addEventListener('click', selectItem)
+
+  // Check auto complete for banks
+  function changeAutoComplete({target}) {
+    let data = target.value;
+    ulField.innerHTML = ``;
+    if(data.length){
+      let autoCompleteValues = autoComplete(data);
+      autoCompleteValues.forEach(value => { addItem(value); });
+    }
+  }
+
+  function autoComplete(inputValue){
+    let naijaBanks = ['Access Bank Plc',
+    'Fidelity Bank Plc',
+    'First City Monument Bank Limited',
+    'First Bank of Nigeria Limited',
+    'Guaranty Trust Holding Company Plc',
+    'Union Bank of Nigeria Plc',
+    'United Bank for Africa Plc',
+    'Zenith Bank Plc', "Citibank Nigeria Limited", "Ecobank Nigeria", "Heritage Bank Plc", "Keystone Bank Limited", "Polaris Bank Limited", "Stanbic IBTC Bank Plc", "Standard Chartered Bank", "Sterling Bank Plc", "Titan Trust Bank Limited", "Unity Bank Plc", "Wema Bank Plc", "Globus Bank Limited", "Parallex Bank Limited", "Providus Bank Limited", "SunTrust Bank Nigeria Limited", "Sparkle Bank", "Kuda Bank", "Rubies Bank", "VFD Microfinance Bank", "Mint Finex MFB"];
+    return naijaBanks.filter((value) => value.toLowerCase().includes(inputValue.toLowerCase()));
+  }
+
+  function addItem(value){
+    ulField.innerHTML = ulField.innerHTML + `<li>${value}</li>`
+  }
+
+  function selectItem({ target }){
+    if (target.tagName === 'LI'){
+      bankName.value = target.textContent;
+      ulField.innerHTML = ``;
+    }
+  }

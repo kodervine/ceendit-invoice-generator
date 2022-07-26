@@ -157,3 +157,30 @@
   
 </body>
 </html>
+
+<!-- 
+
+  function autocompleteBank(input){
+  if(input == ''){
+    return [];
+  }
+
+  const reg = new RegExp(input);
+  return naijaBanks.filter((name)=> {
+    if (name.match(reg)){
+      return name;
+    }
+  })
+}
+
+function showBankName(item){
+  bankResult = document.getElementById('bank-result');
+  bankResult.innerHTML = '';
+  let list = '';
+  let banks = autocompleteBank(item);
+  for(i=0; i <banks.length;i++){
+    list += '<li>' + banks[i] + '</li>'
+  }
+  bankResult.innerHTML = '<ul>' + list + '</ul>'
+}
+ -->
