@@ -25,7 +25,7 @@
   <main class="main">
     <!-- Form to get invoice details -->
     <h3>Fill the form to continue</h3>
-    <form class="form-input">
+    <form class="form-input" autocomplete="off">
       <div>
         <label for="">Sender name</label>
         <input type="text" name="" id="sender-name" placeholder="Who is this invoice from?" required>
@@ -72,6 +72,7 @@
       <div>
         <label for="">Bank name</label>
         <input type="text" name="" id="bank-name" placeholder="">
+        <ul id="suggestions"></ul>
       </div>
       <div>
         <label for="">Account number</label>
@@ -164,6 +165,7 @@
       <section>
         <br><br><br>
         <button class="save-pdf">Save Pdf</button>
+        <button class="create-another-invoice">Create another Invoice</button>
       </section>
   </article>
   
