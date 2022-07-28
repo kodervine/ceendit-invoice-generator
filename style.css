@@ -19,7 +19,7 @@ body {
 }
 
 /* Header */
-.header{
+.header {
   text-align: center;
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -42,13 +42,14 @@ body {
   color: var(--darkest-blue);
 }
 
-.header button:hover{
+.header button:hover {
   transform: scale(1.1);
   transition: all 0.5s ease-in;
 }
 
 /*  Red alert */
-.red-alert {
+.red-alert,
+.num-red-alert {
   position: sticky;
   top: 50%;
   background-color: red;
@@ -90,7 +91,7 @@ main h3 {
   border-bottom: 3px solid var(--dark-blue);
   outline: none;
   font-size: 15px;
-  
+
   background-color: transparent;
 }
 
@@ -104,6 +105,16 @@ main h3 {
   flex-direction: row;
   justify-content: space-between;
   cursor: pointer;
+}
+
+#valid-sender-num,
+#valid-account-num,
+#account-num-length,
+#phone-num-length {
+  font-size: 13px;
+  padding-top: 3px;
+  margin: 2px;
+  color: red;
 }
 
 /* Main button */
@@ -170,15 +181,16 @@ table {
   width: 100%;
 }
 
-.payment-container td, .payment-container th,
+.payment-container td,
+.payment-container th,
 .items-container td,
 .items-container th,
 tr {
   padding: 10px;
 }
 
-.items-container i{
-  cursor:pointer;
+.items-container i {
+  cursor: pointer;
 }
 
 /* For javascript navigation */
@@ -191,7 +203,7 @@ tr {
 }
 
 /* Edit price */
-.edit-invoice{
+.edit-invoice {
   display: none;
 }
 
@@ -213,7 +225,7 @@ tr {
   }
 
   main {
-  width: 80%;
+    width: 80%;
   }
 
   .red-alert {
@@ -226,5 +238,5 @@ tr {
     margin: auto;
     padding: 10px 0;
     font-size: 16px;
-    }
+  }
 }

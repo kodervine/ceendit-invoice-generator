@@ -46,6 +46,64 @@ const paymentMethod = document.querySelector('#payment-method');
 const productDetails = document.querySelector('.product-details');
 
 // General Function to add input values to the invoice page
+
+// Validate input values for number
+// Add event listener
+senderNum.addEventListener('keyup', ()=>{
+  const validSenderNum = document.getElementById('valid-sender-num');
+  const phoneNumLength = document.getElementById('phone-num-length');
+
+  // Confirm phone number is digits
+  function confirmNumber(number, regex){
+  const matches = number.match(regex) || [];
+
+  if (matches.length === 0) {
+    // alert('You have no numbers');
+    senderNum.value = '';
+    validSenderNum.classList.remove('display-none');
+    } else {
+    validSenderNum.classList.add('display-none');
+    }
+
+     // Check that phone number is not greater than 11
+    if (matches.length !== 11){
+    phoneNumLength.classList.remove('display-none');
+    } else {
+    phoneNumLength.classList.add('display-none');
+    }
+  }
+  confirmNumber(senderNum.value, /[0-9]/g)
+
+})
+
+// Confirm input for account number
+accountNum.addEventListener('keyup', ()=>{
+  const validAccountNum = document.getElementById('valid-account-num');
+  const accountNumLength = document.getElementById('account-num-length');
+  function confirmBankNumber(number, regex){
+    const matchBankDigit = number.match(regex) || [];
+    // Match that it's real number
+    if (matchBankDigit.length === 0) {
+    // alert('You have no numbers');
+    accountNum.value = '';
+
+    validAccountNum.classList.remove('display-none');
+    } else {
+    validAccountNum.classList.add('display-none');
+    }
+
+    // Check that account number is not greater than 10
+    if (matchBankDigit.length !== 10){
+    accountNumLength.classList.remove('display-none');
+    } else {
+    accountNumLength.classList.add('display-none');
+    }
+    
+  }
+
+  confirmBankNumber(accountNum.value, /[0-9]/g)
+})
+
 function addToInvoice(formInput, appendDiv){
   // Authentication of empty input
   if(formInput.value === ''){
