@@ -52,9 +52,7 @@ function addToInvoice(formInput, appendDiv){
     const redAlert = document.querySelector('.red-alert');
     redAlert.classList.remove('display-none');
 
-    // Work on stopping appended child
-    // ===============================
-
+    // Remove red alert
     setTimeout(() => {
       redAlert.classList.add('display-none');
     }, 1000);
@@ -70,7 +68,12 @@ function addToInvoice(formInput, appendDiv){
   const createParagraph = document.createElement('p');
   createParagraph.innerText = formInput.value;
 
-  appendDiv.appendChild(createParagraph);
+  // Prevent empty input from showing up on invoice page
+  if (formInput.value === ''){
+    createParagraph.innerText = '';
+  } else {
+    appendDiv.appendChild(createParagraph);
+  }
   formInput.value = '';
 }
 
@@ -82,7 +85,14 @@ function productItems(row1, row2, appendDiv){
   <td>${row2.value}</td>
   <td><i class="fa-solid fa-ellipsis-vertical"></i><p class="display-none">Edit invoice</p></td>
   `
-  appendDiv.appendChild(createRow);
+
+  // Prevent appending empty row
+  if (row1.value === '' || row2.value === ''){
+    createRow.innerHTML = '';
+  } else {
+    appendDiv.appendChild(createRow);
+  }
+  // clear input value after enter
   row1.value = '';
   row2.value = '';
 }
@@ -98,7 +108,14 @@ function paymentTable(row1, row2, row3, appendDiv){
   <td>${row2.value}</td>
   <td>${row3.value}</td>
   `
-  appendDiv.appendChild(createRow);
+
+  // Prevent appending empty row
+  if (row1.value === '' || row2.value === '' || row3.value === ''){
+    createRow.innerHTML = '';
+  } else {
+    appendDiv.appendChild(createRow);
+  }
+  // clear input value after
   row1.value = '';
   row2.value = '';
   row3.value = '';
@@ -172,9 +189,11 @@ function createInvoiceAgain(){
 createInvoiceAgain()
 
 /* ================================
+============================
 To suggest bank names in the input field
 Inspo here - https://dev.to/walternascimentobarroso/autocomplete-with-js-551f
-============================ */
+============================ 
+============================*/
   "use strict";
   bankName;
   let ulField = document.getElementById('suggestions');
