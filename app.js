@@ -28,7 +28,8 @@ const senderNum = document.getElementById('sender-num');
 const senderEmail= document.getElementById('sender-email');
 const recipientName = document.getElementById('recipient-name');
 const recipientCompany = document.getElementById('recipient-company');
-const recipientEmail= document.getElementById('recipient-email');
+// const recipientEmail= document.getElementById('recipient-email');
+const recipientPhoneNum= document.getElementById('recipient-phone');
 const dateCreated = document.getElementById('date-created');
 const dateDue = document.getElementById('date-due');
 const servicesProvided = document.querySelector('#services');
@@ -75,6 +76,36 @@ senderNum.addEventListener('keyup', ()=>{
   confirmNumber(senderNum.value, /[0-9]/g)
 
 })
+
+// Receivers number
+// Add event listener
+recipientPhoneNum.addEventListener('keyup', ()=>{
+  const validRecipientNum = document.getElementById('valid-recipient-num');
+  const phoneNumLength = document.getElementById('recipient-phone-num-length');
+
+  // Confirm phone number is digits
+  function confirmNumber(number, regex){
+  const matches = number.match(regex) || [];
+
+  if (matches.length === 0) {
+    // alert('You have no numbers');
+    recipientPhoneNum.value = '';
+    validRecipientNum.classList.remove('display-none');
+    } else {
+    validRecipientNum.classList.add('display-none');
+    }
+
+     // Check that phone number is not greater than 11
+    if (matches.length !== 11){
+    phoneNumLength.classList.remove('display-none');
+    } else {
+    phoneNumLength.classList.add('display-none');
+    }
+  }
+  confirmNumber(recipientPhoneNum.value, /[0-9]/g)
+
+})
+
 
 // Confirm input for account number
 accountNum.addEventListener('keyup', ()=>{
@@ -137,6 +168,24 @@ function addToInvoice(formInput, appendDiv){
 
 // Add to product / service provided table
 function productItems(row1, row2, appendDiv){
+  // Confirm if value is not empty and prevent the invoice page from showing
+    if(row1.value === '' || row2.value === ''){
+    const redAlert = document.querySelector('.red-alert');
+    redAlert.classList.remove('display-none');
+
+    // Remove red alert
+    setTimeout(() => {
+      redAlert.classList.add('display-none');
+    }, 1000);
+
+    main.classList.remove('display-none');
+    invoicePage.classList.add('display-none');
+  } else {
+    main.classList.add('display-none');
+    invoicePage.classList.remove('display-none')
+  }
+
+  //  Main logic
   const createRow = document.createElement('tr');
   createRow.innerHTML =  `
   <td>${row1.value}</td>
@@ -160,6 +209,22 @@ function productItems(row1, row2, appendDiv){
 =============================================
 */
 function paymentTable(row1, row2, row3, appendDiv){
+  // Confirm if value is not empty and prevent the invoice page from showing
+    if(row1.value === '' || row2.value === '' || row3.value === ''){
+    const redAlert = document.querySelector('.red-alert');
+    redAlert.classList.remove('display-none');
+
+    // Remove red alert
+    setTimeout(() => {
+      redAlert.classList.add('display-none');
+    }, 1000);
+
+    main.classList.remove('display-none');
+    invoicePage.classList.add('display-none');
+  } else {
+    main.classList.add('display-none');
+    invoicePage.classList.remove('display-none')
+  }
   const createRow = document.createElement('tr');
   createRow.innerHTML =  `
   <td>${row1.value}</td>
@@ -193,26 +258,27 @@ generateInvoice.addEventListener('click', (formInput)=> {
   addToInvoice(senderEmail, senderDetailsDiv);
   addToInvoice(recipientName, receiverDetailsDiv);
   addToInvoice(recipientCompany, receiverDetailsDiv);
-  addToInvoice(recipientEmail, receiverDetailsDiv);
+  addToInvoice(recipientPhoneNum, receiverDetailsDiv);
+  // addToInvoice(recipientEmail, receiverDetailsDiv);
   productItems(servicesProvided, servicesPrice, productDetails)
   paymentTable(bankName, accountName, accountNum,paymentMethod) 
 
 })
 
 // Add more services list
-const addMoreServices = document.getElementById('add-services');
+// const addMoreServices = document.getElementById('add-services');
 
-addMoreServices.addEventListener('click', ()=> {
-  const newServicesDiv = document.createElement('div');
-  newServicesDiv.innerHTML = `
-      <label for="">Services provided</label>
-      <input type="text" name="" class="services" placeholder="Add services rendered here">`
+// addMoreServices.addEventListener('click', ()=> {
+//   const newServicesDiv = document.createElement('div');
+//   newServicesDiv.innerHTML = `
+//       <label for="">Services provided</label>
+//       <input type="text" name="" class="services" placeholder="Add services rendered here">`
     
-  const addSibling = addMoreServices.parentElement.previousElementSibling;
+//   const addSibling = addMoreServices.parentElement.previousElementSibling;
 
-  addSibling.insertAdjacentElement("afterend", newServicesDiv);
-  }   
-)
+//   addSibling.insertAdjacentElement("afterend", newServicesDiv);
+//   }   
+// )
 
 /* ==========================================
 Save pdf

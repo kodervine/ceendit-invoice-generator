@@ -110,7 +110,9 @@ main h3 {
 #valid-sender-num,
 #valid-account-num,
 #account-num-length,
-#phone-num-length {
+#phone-num-length,
+#valid-recipient-num,
+#recipient-phone-num-length {
   font-size: 13px;
   padding-top: 3px;
   margin: 2px;
