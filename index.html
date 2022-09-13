@@ -1,185 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/541d852649.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="/app.js" defer></script>
+    <title>Ceendit Invoice generator</title>
+  </head>
+  <body>
+    <section class="header">
+      <header class="header-container">
+        <img src="/images/logo.png" alt="" srcset="" />
+        <ul class="navbar">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
+          <li id="show-header-btn">
+            <a href="#create-invoice">Get Started</a>
+          </li>
+        </ul>
+      </header>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/541d852649.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
-  <script src="/app.js" defer></script>
-  <title>Ceendit Invoice generator</title>
-</head>
+      <section class="showcase-container">
+        <div>
+          <h1>Ceendit Invoice Generator</h1>
+          <p>
+            Create a professional invoice in pdf format for your clients in less
+            than a minute. No log in, or details required.
+          </p>
+          <button class="create-invoice" id="create-invoice">
+            Create your invoice here
+          </button>
+        </div>
 
-<body>
-  <header class="header">
-    <img src="/images/logo.png" alt="" srcset="">
-    <h1>Ceendit Invoice Generator</h1>
-    <button class="create-invoice">Create your invoice here</button>
-  </header>
+        <!-- Right side -->
+        <div class="showcase-image">
+          <img src="/images/showcase-header-img.jpg" alt="" />
+        </div>
+      </section>
+    </section>
 
-  <!-- Red alert -->
-  <section class="red-alert display-none">
-    <p>Please fill all the forms to continue</p>
-  </section>
+    <!-- Red alert -->
+    <section class="red-alert display-none">
+      <p>Please fill all the forms to continue</p>
+    </section>
 
-  <section class="num-red-alert display-none">
-    <p>Please fill all the forms to continue</p>
-  </section>
+    <section class="num-red-alert display-none">
+      <p>Please fill all the forms to continue</p>
+    </section>
 
-  <!-- Main -->
-  <main class="main">
-    <!-- Form to get invoice details -->
-    <h3>Fill the form to continue</h3>
-    <form class="form-input" autocomplete="off">
-      <div>
-        <label for="">Sender name</label>
-        <input type="text" name="" id="sender-name" placeholder="Who is this invoice from?" required>
-      </div>
-      <div>
-        <label for="">Sender phone number</label>
-        <input type="number" name="" id="sender-num" placeholder="">
-        <p id="valid-sender-num" class="display-none">Enter a valid number to continue</p>
-        <p id="phone-num-length" class="display-none">Your phone number should be 11 digits</p>
-      </div>
-      <div>
-        <label for="">Sender email</label>
-        <input type="email" name="" id="sender-email" placeholder="">
-      </div>
-      <div>
-        <label for="">Recipient name</label>
-        <input type="text" name="" id="recipient-name" placeholder="Who is this invoice to?">
-      </div>
-      <div>
-        <label for="">Recipient company</label>
-        <input type="text" name="" id="recipient-company" placeholder="">
-      </div>
-      <div>
+    <!-- Main -->
+    <main class="main">
+      <!-- Form to get invoice details -->
+      <h3>Fill the form to continue</h3>
+      <form class="form-input" autocomplete="off">
+        <div>
+          <label for="">Sender name</label>
+          <input
+            type="text"
+            name=""
+            id="sender-name"
+            placeholder="Who is this invoice from?"
+            required
+          />
+        </div>
+        <div>
+          <label for="">Sender phone number</label>
+          <input type="number" name="" id="sender-num" placeholder="" />
+          <p id="valid-sender-num" class="display-none">
+            Enter a valid number to continue
+          </p>
+          <p id="phone-num-length" class="display-none">
+            Your phone number should be 11 digits
+          </p>
+        </div>
+        <div>
+          <label for="">Sender email</label>
+          <input type="email" name="" id="sender-email" placeholder="" />
+        </div>
+        <div>
+          <label for="">Recipient name</label>
+          <input
+            type="text"
+            name=""
+            id="recipient-name"
+            placeholder="Who is this invoice to?"
+          />
+        </div>
+        <div>
+          <label for="">Recipient company</label>
+          <input type="text" name="" id="recipient-company" placeholder="" />
+        </div>
+        <div>
+          <label for="">Recipient phone</label>
+          <input type="number" name="" id="recipient-phone" placeholder="" />
+          <p id="valid-recipient-num" class="display-none">
+            Enter a valid number to continue
+          </p>
+          <p id="recipient-phone-num-length" class="display-none">
+            Your phone number should be 11 digits
+          </p>
+        </div>
+        <!-- <div>
         <label for="">Recipient email</label>
         <input type="email" name="" id="recipient-email" placeholder="">
-      </div>
-      <div>
-        <label for="">Date created</label>
-        <input type="date" name="" id="date-created" placeholder="">
-      </div>
-      <div>
-        <label for="">Date due</label>
-        <input type="date" name="" id="date-due" placeholder="">
-      </div>
-      <div>
-        <label for="">Services provided</label>
-        <input type="text" name="" id="services" placeholder="Add services rendered here">
-      </div>
-      <div class="add-items">
+      </div> -->
+        <div>
+          <label for="">Date created</label>
+          <input type="date" name="" id="date-created" placeholder="" />
+        </div>
+        <div>
+          <label for="">Date due</label>
+          <input type="date" name="" id="date-due" placeholder="" />
+        </div>
+        <div>
+          <label for="">Services provided</label>
+          <input
+            type="text"
+            name=""
+            id="services"
+            placeholder="Add services rendered here"
+          />
+        </div>
+        <!-- <div class="add-items">
         <p>Add more items</p>
         <i class="fa-solid fa-arrow-turn-down" id="add-services"></i>
-      </div>
-      <div>
-        <label for="">Price</label>
-        <input type="text" name="" id="price" placeholder="In Naira">
-      </div>
-      <div>
-        <label for="">Bank name</label>
-        <input type="text" name="" id="bank-name" placeholder="">
-        <ul id="suggestions"></ul>
-      </div>
-      <div>
-        <label for="">Account number</label>
-        <input type="number" name="" id="account-num" placeholder="">
-        <p id="valid-account-num" class="display-none">Enter a valid account number to continue</p>
-        <p id="account-num-length" class="display-none">Your account number should be 10 digits</p>
-      </div>
-      <div>
-        <label for="">Account name</label>
-        <input type="name" name="" id="account-name" placeholder="">
-      </div>
-    </form>
-    <!-- Invoice -->
-    <button id="generate-invoice">Generate Invoice</button>
-    <button class="display-none">Generate Invoice</button>
-  </main>
-
-  <!-- Invoice page -->
-  <article class="invoice-page">
-    <h2>Business Invoice</h2>
-    <!-- Invoice section -->
-    <section class="invoice-container">
-      <!-- Date due -->
-      <div class="invoice-date">
-        <div class="company-logo">
-          <img src="/images/logo.png" alt="Logo" srcset="">
+      </div> -->
+        <div>
+          <label for="">Price</label>
+          <input type="text" name="" id="price" placeholder="In Naira" />
         </div>
-        <div class="add-invoice-date">
-          <p>Invoice #00001</p>
-          <!-- <p>23/07/2022</p>
+        <div>
+          <label for="">Bank name</label>
+          <input type="text" name="" id="bank-name" placeholder="" />
+          <ul id="suggestions"></ul>
+        </div>
+        <div>
+          <label for="">Account number</label>
+          <input type="number" name="" id="account-num" placeholder="" />
+          <p id="valid-account-num" class="display-none">
+            Enter a valid account number to continue
+          </p>
+          <p id="account-num-length" class="display-none">
+            Your account no should be 10 digits
+          </p>
+        </div>
+        <div>
+          <label for="">Account name</label>
+          <input type="name" name="" id="account-name" placeholder="" />
+        </div>
+      </form>
+      <!-- Invoice -->
+      <button id="generate-invoice">Generate Invoice</button>
+      <button class="display-none">Generate Invoice</button>
+    </main>
+
+    <!-- Invoice page -->
+    <article class="invoice-page">
+      <h2>Business Invoice</h2>
+      <!-- Invoice section -->
+      <section class="invoice-container">
+        <!-- Date due -->
+        <div class="invoice-date">
+          <div class="company-logo">
+            <img src="/images/logo.png" alt="Logo" srcset="" />
+          </div>
+          <div class="add-invoice-date">
+            <p>Invoice #00001</p>
+            <!-- <p>23/07/2022</p>
             <p>30/07/2022</p> -->
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Senders and receivers container -->
-    <section class="name-container">
-      <div class="sender-details">
-        <h4>From</h4>
-        <!-- <p>Olaedo Ekezie</p>
+      <!-- Senders and receivers container -->
+      <section class="name-container">
+        <div class="sender-details">
+          <h4>From</h4>
+          <!-- <p>Olaedo Ekezie</p>
           <p>08035682018</p>
           <p>olaedoekezie@gmail.com</p> -->
-      </div>
+        </div>
 
-      <div class="sender-details" id="receiver-details">
-        <h4>To</h4>
-        <!-- <p>Duke Okonkwo</p>
+        <div class="sender-details" id="receiver-details">
+          <h4>To</h4>
+          <!-- <p>Duke Okonkwo</p>
           <p>Silverline corporations</p>
           <p>duke@silverline.com</p> -->
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="payment-container">
-      <table class="payment-header">
-        <thead>
-          <tr>
-            <th>Bank Name</th>
-            <th>Account Name</th>
-            <th>Account Number</th>
-          </tr>
-        </thead>
-        <tbody id="payment-method">
-          <!-- <tr>
+      <section class="payment-container">
+        <table class="payment-header">
+          <thead>
+            <tr>
+              <th>Bank Name</th>
+              <th>Account Name</th>
+              <th>Account Number</th>
+            </tr>
+          </thead>
+          <tbody id="payment-method">
+            <!-- <tr>
               <td>Standard Chartered Bank</td>
               <td>Olaedo Ekezie</td>
               <td>5012355619</td>
             </tr> -->
-        </tbody>
-      </table>
-    </section>
+          </tbody>
+        </table>
+      </section>
 
-    <!-- Items/services -->
-    <section class="items-container">
-      <table class="product-header">
-        <thead>
-          <tr>
-            <th>Product/Service</th>
-            <th>Price (NGN)</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody id="payment-method" class="product-details">
-          <!-- <tr>
+      <!-- Items/services -->
+      <section class="items-container">
+        <table class="product-header">
+          <thead>
+            <tr>
+              <th>Product/Service</th>
+              <th>Price (NGN)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="payment-method" class="product-details">
+            <!-- <tr>
               <td>5 emails</td>
               <td>#20</td>
               <td><i id="edit-button" class="fa-solid fa-ellipsis-vertical"></i><p class="edit-invoice">  Edit</p></td>
             </tr> -->
-        </tbody>
-      </table>
-    </section>
+          </tbody>
+        </table>
+      </section>
 
-    <section>
-      <br><br><br>
-      <button class="save-pdf">Save Pdf</button>
-      <button class="create-another-invoice">Create another Invoice</button>
-    </section>
-  </article>
-
-</body>
-
+      <section>
+        <br /><br /><br />
+        <button class="save-pdf">Save Pdf</button>
+        <button class="create-another-invoice">Create another Invoice</button>
+      </section>
+    </article>
+  </body>
 </html>
